@@ -23,7 +23,7 @@ package com.yearsalso;
  * 你在返回的 k 个元素之外留下了什么并不重要（因此它们并不计入评测）。
  */
 
-class Solution {
+public class Solution {
     public int removeElement(int[] nums, int val) {
         int k = 0;
         for (int i = 0; i < nums.length; i++) {

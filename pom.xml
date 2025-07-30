@@ -12,12 +12,8 @@
     </properties>
 
     <modules>
-        <module>classic-interview-001</module>
-        <module>classic-interview-002</module>
-        <module>classic-interview-003</module>
-        <module>classic-interview-004</module>
-        <module>classic-interview-005</module>
-        <module>classic-interview-006</module>
+        <module>classic-interview</module>
+        <module>sword-to-offer</module>
     </modules>
 
     <modelVersion>4.0.0</modelVersion>

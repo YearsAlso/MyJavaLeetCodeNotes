@@ -40,22 +40,21 @@ class Solution {
     public int removeDuplicates(int[] nums) {
         int times = 0;
         int result = 0;
-        int[] tempArray = new int[nums.length];
+        int lastestVal = Integer.MIN_VALUE;
         for (int i = 0; i < nums.length; i++) {
-            if (nums[result] == nums[i]) {
+            if (nums[result] == nums[i] && nums[i] == lastestVal) {
                 times++;
                 if (times <= 2) {
-                    tempArray[result] = nums[i];
+                    nums[result] = nums[i];
                     result++;
                 }
             } else {
-                times = 1;
-                tempArray[result] = nums[i];
+                nums[result] = nums[i];
+                lastestVal = nums[i];
                 result++;
+                times = 1;
             }
         }
-
-        System.arraycopy(tempArray, 0, nums, 0, result + 1);
 
         return result;
     }

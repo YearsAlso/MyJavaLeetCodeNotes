@@ -142,4 +142,18 @@ public class SolutionTest {
 
         assertEquals(expectedLength, resultLength);
     }
+
+    @Test
+    public void testArray() {
+        int[] nums = {0,0,1,1,1,1,2,2,2,4};
+        int expectedLength = 7;
+        int[] expectedPrefix = {0,0,1,1,2,2,4};
+
+        int resultLength = solution.removeDuplicates(nums);
+
+        assertEquals(expectedLength, resultLength);
+        for (int i = 0; i < expectedLength; i++) {
+            assertEquals(expectedPrefix[i], nums[i]);
+        }
+    }
 }

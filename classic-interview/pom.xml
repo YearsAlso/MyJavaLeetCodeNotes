@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <packaging>pom</packaging>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <modules>
+        <module>classic-interview-001</module>
+        <module>classic-interview-002</module>
+        <module>classic-interview-003</module>
+        <module>classic-interview-004</module>
+        <module>classic-interview-005</module>
+        <module>classic-interview-006</module>
+    </modules>
+
+    <parent>
+        <groupId>com.yearsalso</groupId>
+        <artifactId>leetcode-notes</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>classic-interview</artifactId>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+</project>

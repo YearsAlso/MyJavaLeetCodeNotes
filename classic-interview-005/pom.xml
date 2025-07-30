@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>classis-interview-005</artifactId>
+    <artifactId>classic-interview-005</artifactId>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>

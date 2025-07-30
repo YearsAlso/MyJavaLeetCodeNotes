@@ -6,9 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="classic-interview-003" />
         <module name="classic-interview-002" />
         <module name="classic-interview-001" />
+        <module name="classic-interview-004" />
+        <module name="classic-interview-003" />
       </profile>
     </annotationProcessing>
   </component>

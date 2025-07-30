@@ -42,7 +42,8 @@ class Solution {
         int result = 0;
         int lastestVal = Integer.MIN_VALUE;
         for (int i = 0; i < nums.length; i++) {
-            if (nums[result] == nums[i] && nums[i] == lastestVal) {
+            // 这里才是关键，因为这里使用最后一个值来判断是否是重复的，才能避免result 移动的问题，有时result 会移动到空白的位置，导致判断错误
+            if (nums[i] == lastestVal) {
                 times++;
                 if (times <= 2) {
                     nums[result] = nums[i];

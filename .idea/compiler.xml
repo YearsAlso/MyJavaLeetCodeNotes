@@ -10,6 +10,7 @@
         <module name="classic-interview-001" />
         <module name="classic-interview-004" />
         <module name="classic-interview-003" />
+        <module name="classis-interview-005" />
       </profile>
     </annotationProcessing>
   </component>

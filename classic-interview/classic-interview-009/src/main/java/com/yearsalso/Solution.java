@@ -27,18 +27,23 @@ public class Solution {
         }
 
         int stepMaxNum = nums[index];
+
+        if (stepMaxNum == 0) {
+            return false;
+        }
+
         if (stepMaxNum > nums.length) {
             return true;
         }
-        boolean success = false;
+
         for (int i = stepMaxNum; i >= 1; i--) {
-            success |= canJumpCore(nums, index + i);
+            boolean success = canJumpCore(nums, index + i);
             if (success) {
                 return true;
             }
         }
 
-        return success;
+        return false;
     }
 
     public boolean canJump(int[] nums) {

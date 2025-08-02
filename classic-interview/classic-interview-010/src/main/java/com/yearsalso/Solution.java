@@ -23,9 +23,32 @@ package com.yearsalso;
  * 输出: 2
  */
 public class Solution {
-    public int jump(int[] nums) {
-        int result = 0;
 
-        return result;
+    public int jump(int[] nums) {
+        if (nums.length <= 1) {
+            return 0;
+        }
+
+        int maxReach = nums[0]; // 记录当前能到达的最远位置
+
+        int minSteps = 1; // 记录当前跳跃次数
+
+        for (int i = 1; i < nums.length; i++) {
+            // 更新能到达的最远位置
+            maxReach = Math.max(maxReach, i + nums[i]);
+            if(maxReach == i + nums[i]) {
+                // 如果当前位置的最大跳跃长度等于当前下标，说明需要跳跃
+                minSteps++;
+            }
+
+            // 如果已经能到达或超过最后一个下标，直接返回true
+            if (maxReach >= nums.length - 1) {
+                minSteps ++; // 最后一次跳跃
+                break;
+            }
+        }
+
+
+        return minSteps;
     }
 }

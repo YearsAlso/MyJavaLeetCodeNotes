@@ -54,6 +54,19 @@ public class SolutionTest {
     }
 
     @Test
+    @DisplayName("测试单元素数组: [1] 应该返回 1")
+    public void testSingleElement2() {
+        // Given: 单元素数组
+        int[] nums = {1};
+
+        // When: 调用jump方法
+        int result = solution.jump(nums);
+
+        // Then: 验证结果为0
+        assertEquals(0, result, "单元素数组跳跃次数应该为1");
+    }
+
+    @Test
     @DisplayName("测试两元素数组: [2,1] 应该返回 1")
     public void testTwoElements() {
         // Given: 两元素数组
@@ -104,4 +117,19 @@ public class SolutionTest {
         // Then: 验证结果为3
         assertEquals(3, result, "需要3次跳跃到达终点");
     }
+
+    @Test
+    @DisplayName("测试用例: [1,2,3] 应该返回 2")
+    public void testCase123() {
+        // Given: 给定测试用例 [1,2,3]
+        int[] nums = {1, 2, 3};
+
+        // When: 调用jump方法
+        int result = solution.jump(nums);
+
+        // Then: 验证结果为2
+        assertEquals(2, result, "跳跃次数应该为2");
+    }
+
+
 }

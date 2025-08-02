@@ -20,37 +20,57 @@ package com.yearsalso;
  */
 public class Solution {
 
-    public boolean canJumpCore(int[] nums, int index) {
-        // index 应该是比长度小1
-        if (index >= nums.length - 1) {
-            return true;
-        }
-
-        int stepMaxNum = nums[index];
-
-        if (stepMaxNum == 0) {
-            return false;
-        }
-
-        if (stepMaxNum > nums.length) {
-            return true;
-        }
-
-        for (int i = stepMaxNum; i >= 1; i--) {
-            boolean success = canJumpCore(nums, index + i);
-            if (success) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
+    /**
+     * 贪心算法
+     * 时间复杂度 O(n)
+     * 空间复杂度 O(1)
+     *
+     * @param nums 输入的数组
+     * @return 是否可以到达最后一个下标
+     */
     public boolean canJump(int[] nums) {
         if (nums.length <= 1) {
             return true;
         }
 
-        return canJumpCore(nums, 0);
+        /*
+         * 递归转迭代的关键思路:
+         * maxReach 既是当前能到达的最远位置，
+         * 也是当前范围内最合理的跳转位置，
+         * 这样只要在获取maxReach 之后继续获取maxReach，
+         * 就可以判断是否可以到达最后一个下标
+         */
+         int maxReach = 0; // 记录当前能到达的最远位置
+
+
+        /*
+         * 递归转迭代的常见方法:
+         * 1. 使用栈模拟递归调用栈
+         * 创建一个显式的栈数据结构
+         * 将递归中需要保存的变量和状态压入栈中
+         * 用循环替代递归调用
+         * 2. 尾递归优化
+         * 如果是尾递归，可以直接用循环替代
+         * 更新参数值，重新执行循环体
+         * 3. 动态规划方式
+         * 自底向上计算，避免重复计算
+         * 用数组或变量保存中间结果
+         */
+        for (int i = 0; i < nums.length; i++) {
+            // 如果当前位置超过了能到达的最远位置，说明无法到达当前位置
+            if (i > maxReach) {
+                return false;
+            }
+            
+            // 更新能到达的最远位置
+            maxReach = Math.max(maxReach, i + nums[i]);
+            
+            // 如果已经能到达或超过最后一个下标，直接返回true
+            if (maxReach >= nums.length - 1) {
+                return true;
+            }
+        }
+        
+        return false;
     }
 }

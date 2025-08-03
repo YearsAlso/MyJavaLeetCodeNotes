@@ -120,4 +120,16 @@ public class SolutionTest {
         int result = solution.candy(ratings);
         assertEquals(16, result);
     }
+
+    /**
+     * Test case: Complex pattern with multiple peaks and valleys
+     * Input: [1,6,10,8,7,3,2]
+     * Expected: 16 (1+2+3+2+1+1+1)
+     */
+    @Test
+    public void testCandyWithComplexPattern() {
+        int[] ratings = {1, 6, 10, 8, 7, 3, 2};
+        int result = solution.candy(ratings);
+        assertEquals(18, result);
+    }
 }

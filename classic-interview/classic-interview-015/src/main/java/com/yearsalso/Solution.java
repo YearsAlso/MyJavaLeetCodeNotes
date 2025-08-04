@@ -30,26 +30,23 @@ public class Solution {
             return 0;
         }
 
+        /**
+         * 之前处理递减的情况时卡壳了，想了很多办法，比如压栈，但是这个压栈时机一致没有处理好
+         * 实际在递减序列中，只需要从后往前遍历，并且遍历的时候，
+         * 如果当前元素比前一个元素小，则当前元素糖果数应该比前一个元素糖果数多1
+         */
         int candyNum = 0;
-        List<Integer> oldIndexStack = new ArrayList<>();
         int[] candies = new int[ratings.length];
+        Arrays.fill(candies, 1);
         for (int i = 1; i < ratings.length; i++) {
-            if (ratings[i] < ratings[i - 1]) {
-                candies[i - 1] += 1;
-            }
             if (ratings[i] > ratings[i - 1]) {
                 candies[i] = candies[i - 1] + 1;
             }
         }
 
-        for (int i = 0; i < candies.length - 1; i++) {
-            if (candies[i] == candies[i + 1]) {
-                if (ratings[i] > ratings[i + 1]) {
-                    candies[i] += 1;
-                }
-                if (ratings[i] < ratings[i + 1]) {
-                    candies[i + 1] += 1;
-                }
+        for (int i = ratings.length -2 ; i >=0 ; i--) {
+            if (ratings[i] > ratings[i + 1]) {
+                candies[i] = Math.max(candies[i], candies[i + 1] + 1);
             }
         }
 
@@ -59,6 +56,6 @@ public class Solution {
             candyNum += candy;
         }
 
-        return candyNum + ratings.length;
+        return candyNum;
     }
 }

@@ -21,6 +21,7 @@
         <module>classic-interview-013</module>
         <module>classic-interview-014</module>
         <module>classic-interview-015</module>
+        <module>classic-interview-016</module>
     </modules>
 
     <parent>
